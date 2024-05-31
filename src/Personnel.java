@@ -12,5 +12,5 @@ public class Personnel {
 		personList.add(p);
 	}
 
-
+	public void removePersonnel(Person p) {personList.remove(p);}
 }
