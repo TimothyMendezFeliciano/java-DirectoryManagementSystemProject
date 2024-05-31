@@ -1,7 +1,7 @@
 import java.util.*;
 public class Personnel {
 
-	public ArrayList<Person> personList;
+	private ArrayList<Person> personList;
 
 	public Personnel() {
 	   personList = new ArrayList<Person>();
@@ -13,4 +13,9 @@ public class Personnel {
 	}
 
 	public void removePersonnel(Person p) {personList.remove(p);}
+
+	public ArrayList<Person> getPersonList() {return this.personList;}
+
+	public Person getPersonByID(int id) {return personList.get(id);}
+
 }
