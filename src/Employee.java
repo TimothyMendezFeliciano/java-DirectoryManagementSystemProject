@@ -5,15 +5,22 @@ public class Employee extends Person{
 
 	public Employee(String last, String first, String middle, int id, double sal) {
 		super(last, first, middle);
-		empID = id;
-		baseSalary = sal;
-
+		this.empID = id;
+		this.baseSalary = sal;
 	}
 
 	public int getID()
 	{
 		return empID;
 
+	}
+
+	public double getBaseSalary() {
+		return this.baseSalary;
+	}
+
+	public void setBaseSalary(double baseSalary) {
+		this.baseSalary = baseSalary;
 	}
 
 }
