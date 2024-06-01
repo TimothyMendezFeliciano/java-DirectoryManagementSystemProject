@@ -6,7 +6,6 @@ public class PersonnelDirectory {
 
     public static void main(String[] args) {
         Personnel per = new Personnel();
-        totalObjects total = new totalObjects();
         Scanner scan = new Scanner(System.in);
         String firstN, lastN, middleN, type;
         int empID;
@@ -49,7 +48,6 @@ public class PersonnelDirectory {
                     Person p = new PersonnelFactory().createPersonnel(type, lastN, firstN, middleN, empID, salary);
 
                     per.addPersonnel(p);
-                    total.objectAdded();
 
                     break;
 
@@ -87,7 +85,6 @@ public class PersonnelDirectory {
                         scan.nextLine();
                         Person p1 = new PersonnelFactory().createPersonnel(type, lastN, firstN, " ", empID, salary);
                         per.addPersonnel(p1);
-                        total.objectAdded();
                     }
 
                     break;
@@ -106,7 +103,7 @@ public class PersonnelDirectory {
                     break;
 
                 case 4:
-                    System.out.println("Total Entries : " + total.getTotalObjects());
+                    System.out.println("Total Entries : " + per.getPersonList().size());
                     break;
 
             }
