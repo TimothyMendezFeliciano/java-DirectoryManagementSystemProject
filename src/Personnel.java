@@ -18,4 +18,13 @@ public class Personnel {
 
 	public Person getPersonByIndex(int index) {return personList.get(index);}
 
+	public Person getPersonByName(String first, String last) {
+			for (Person p : personList) {
+			if (p.getFirst().equals(first) && p.getLast().equals(last)) {
+				return p;
+			}
+		}
+		return null;
+	}
+
 }

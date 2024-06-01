@@ -59,20 +59,11 @@ public class PersonnelDirectory {
                     System.out.println("Enter last name : ");
                     lastN = scan.nextLine();
 
+                    Person personToFind = per.getPersonByName(firstN, lastN);
 
-                    boolean found = false;
-                    int loc = -1;
-                    ArrayList<Person> personArrayList = per.getPersonList();
-                    for (int i = 0; i < personArrayList.size(); i++) {
-                        if (per.getPersonByIndex(i).getFirst().equals(firstN) && per.getPersonByIndex(i).getLast().equals(lastN)) {
-                            found = true;
-                            loc = i;
-                        }
-                    }
-
-                    if (found) {
+                    if (personToFind != null) {
                         System.out.println("Found");
-                        per.getPersonByIndex(loc).printName();
+                        personToFind.printName();
 
                     } else {
                         System.out.println("Personnel Not Found");
