@@ -18,7 +18,4 @@ public class totalObjects
       return numObjects;
    }
 
-
-
-
 }

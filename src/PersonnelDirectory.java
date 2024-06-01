@@ -8,9 +8,9 @@ public class PersonnelDirectory {
         Personnel per = new Personnel();
         totalObjects total = new totalObjects();
         Scanner scan = new Scanner(System.in);
-        String firstN, lastN, middleN;
+        String firstN, lastN, middleN, type;
         int empID;
-        double salary;
+        double salary = 0.0;
         int choice = -1;
 
 
@@ -19,9 +19,11 @@ public class PersonnelDirectory {
 
             System.out.println("Welcome to the Personnel Directory Management System");
             System.out.println("====================================================");
+            System.out.println("Enter personnel type (person, employee, executive, security, volunteer): ");
+            type = scan.nextLine();
 
-            System.out.println("\n\n\t 1. Add Personel");
-            System.out.println("\n\t 2. Find Personel");
+            System.out.println("\n\n\t 1. Add Personnel");
+            System.out.println("\n\t 2. Find Personnel");
             System.out.println("\n\t 3. Print Names");
             System.out.println("\n\t 4. Number of Entries in the Directory");
 
@@ -38,23 +40,22 @@ public class PersonnelDirectory {
                     System.out.println("Enter middle name: ");
                     middleN = scan.nextLine();
 
-                    System.out.println("Enter empploy id : ");
+                    System.out.println("Enter employee ID: ");
                     empID = scan.nextInt();
-                    System.out.println("Enter base salaey");
+                    System.out.println("Enter base salary: ");
                     salary = scan.nextDouble();
                     scan.nextLine();
 
-                    Employee e1 = new Employee(lastN, firstN, middleN, empID, salary);
+                    Person p = new PersonnelFactory().createPersonnel(type, lastN, firstN, middleN, empID, salary);
 
-
-                    per.addPersonnel(e1);
+                    per.addPersonnel(p);
                     total.objectAdded();
 
                     break;
 
                 case 2:
 
-                    System.out.println("Enter firts name : ");
+                    System.out.println("Enter first name : ");
                     firstN = scan.nextLine();
 
                     System.out.println("Enter last name : ");
@@ -65,7 +66,7 @@ public class PersonnelDirectory {
                     int loc = -1;
                     ArrayList<Person> personArrayList = per.getPersonList();
                     for (int i = 0; i < personArrayList.size(); i++) {
-                        if (per.getPersonByID(i).getFirst().equals(firstN) && per.getPersonByID(i).getLast().equals(lastN)) {
+                        if (per.getPersonByIndex(i).getFirst().equals(firstN) && per.getPersonByIndex(i).getLast().equals(lastN)) {
                             found = true;
                             loc = i;
                         }
@@ -73,11 +74,18 @@ public class PersonnelDirectory {
 
                     if (found) {
                         System.out.println("Found");
-                        per.getPersonByID(loc).printName();
+                        per.getPersonByIndex(loc).printName();
 
                     } else {
-                        System.out.println("not found");
-                        Person p1 = new Person(lastN, firstN, " ");
+                        System.out.println("Personnel Not Found");
+                        System.out.println("Creating Personnel");
+
+                        System.out.println("Enter employee ID: ");
+                        empID = scan.nextInt();
+                        System.out.println("Enter base salary: ");
+                        salary = scan.nextDouble();
+                        scan.nextLine();
+                        Person p1 = new PersonnelFactory().createPersonnel(type, lastN, firstN, " ", empID, salary);
                         per.addPersonnel(p1);
                         total.objectAdded();
                     }

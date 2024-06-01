@@ -17,7 +17,6 @@ public class Person {
         this.printOrder = NameOrder.FirstMiddleLast;
     }
 
-
     public void printName() {
 
         if (printOrder == NameOrder.FirstMiddleLast) {

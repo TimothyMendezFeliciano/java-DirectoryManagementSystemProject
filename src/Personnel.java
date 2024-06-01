@@ -16,6 +16,6 @@ public class Personnel {
 
 	public ArrayList<Person> getPersonList() {return this.personList;}
 
-	public Person getPersonByID(int id) {return personList.get(id);}
+	public Person getPersonByIndex(int index) {return personList.get(index);}
 
 }

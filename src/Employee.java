@@ -1,4 +1,4 @@
-public class Employee extends Person{
+public class Employee extends Person implements IPersonnelWorker {
 	private int empID;
 	private double baseSalary;
 
